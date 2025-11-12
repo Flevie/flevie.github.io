@@ -1,0 +1,597 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat Light", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+/* === === === === */
+/* ↓ SCROLLBAR ↓   */
+/* === === === === */
+
+body {
+  overflow-y: auto;
+  scrollbar-color: rgba(117, 84, 240, 0.4) transparent; /* Firefox */
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* WebKit browsers (Chrome, Edge Chromium, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 0; /* hidden by default */
+  transition: width 0.3s ease;
+  background: transparent;
+}
+
+:hover::-webkit-scrollbar {
+  width: 6px; /* visible on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(117, 84, 240, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(117, 84, 240, 1);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* === === === === */
+/* ↑ SCROLLBAR ↑   */
+/* === === === === */
+
+/* IE fallback (optional, very old versions only) */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body {
+    scrollbar-base-color: #7554F0;
+    scrollbar-track-color: transparent;
+    scrollbar-face-color: #7554F0;
+  }
+}
+
+/* === === === */
+/* ↓ DIVIDER ↓ */
+/* === === === */
+
+.divider {
+  background-color:#41289d;
+  max-width: 100%;
+  padding-bottom: 1em;
+}
+
+.secondaryDivider {
+  background: #41289D;
+  max-width: 100%;
+  padding-bottom: 10vh;
+}
+
+/* === === === */
+/* ↑ DIVIDER ↑ */
+/* === === === */
+
+/* === Welcome Banner === */
+.welcomeBanner {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background image */
+.welcomeBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: 0;
+  opacity: 0.3;
+  background-image: url(https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Background image */
+#mainContent {
+  background: #41289D;
+}
+
+#secondaryContent {
+  background-image: url("../graphics/secondaryContent.jpg");
+  background-attachment: fixed;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+/* Banner text */
+.banner-content {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Text styling */
+.banner-content h1 {
+  font-size: 100px;
+  font-weight: 800;
+  color: #7554F0;
+  text-shadow: 0 0 10px #41289d;
+}
+
+.welcomeBanner {
+  position: relative;
+  height: 100vh; /* full screen */
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat Light", sans-serif;
+  overflow: hidden;
+  background-color: black;
+}
+
+.welcomeBanner span {
+  color: #7554F0;
+  text-shadow: 0 0 10px rebeccapurple;
+}
+
+.welcomeBanner img {
+  max-width: 400px;
+}
+
+.welcomeBanner h1 {
+  font-size: 100px;
+}
+
+.welcomeBanner p {
+  font-size:25px;
+}
+
+.welcomeBanner i {
+  margin-bottom: 2em;
+}
+
+.welcomeBanner a {
+  color: white;
+  text-decoration: none;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+/* Down arrow */
+.arrow-down {
+  margin-top: -20px;
+  margin-right:auto;
+  margin-left:auto;
+  width: 40px;
+  height: 40px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(-45deg);
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-45deg);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* evenly spaced 3 columns */
+  gap: 10px; /* space between items */
+  padding: 10px;
+  width: 90%;
+  max-width: 1200px; /* limit container width */
+  margin: 0 auto;
+  background-color: transparent;
+  align-items: start; /* vertically center content inside each grid cell */
+  justify-items: stretch; /* horizontally center content inside each grid cell */
+}
+
+.container div {
+  background-color: rgb(117,84,240,.4);
+  color: #fff;
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  font-family: "Montserrat Light", sans-serif;
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(40px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  border: outset;
+  border-color: rgb(117,84,240);
+  margin-bottom: 2em;
+}
+
+.container div h2 {
+  font-size: 25px;
+  text-align: center;
+  color: rgb(117,84,240);
+  text-shadow: -1px 2px 0 white;
+}
+
+/* Animation: Fade + slide up */
+.container div.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* 2 columns on tablet */
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+
+.content {
+  min-height: 100vh;
+}
+
+/* === Entrance Animation === */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in {
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FOOTER === */
+.footer {
+  width: 100%;
+  background-color:#41289d;
+  text-align: center;
+  color: #fff;
+  padding: 1em 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footernav {
+    word-spacing: 28px;
+    font-family: "Montserrat Light", sans-seriff;
+}
+
+.footernav a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  word-spacing: 28px;
+  display: inline-block; /* required for translateY to work */
+  transition: transform 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+
+.footernav a:hover {
+    color: #fff;
+    transform: color(black);
+    font-size: 1.3em; /* about 2px larger on most screens */
+}
+
+.footer h2 {
+  color: #fff;
+  font-family: "Montserrat Light", sans-serif;
+  text-align: center;
+}
+
+.footer-logo {
+  display: block;
+  margin: 0 auto 1em auto; /* center horizontally + small space below */
+  width: 80px; /* adjust to desired size */
+  height: auto;
+  border-radius: 12px; /* optional: slightly rounded edges */
+  opacity: 0.9; /* optional: subtle transparency to blend in */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* === Tooltip Styles === */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff; /* matches your color scheme */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgb(60, 60, 60); /* dark gray, fits theme */
+  color: #fff; /* your light gold text */
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Montserrat Light", sans-serif; /* matches body font */
+
+  /* Positioning above the text */
+  position: absolute;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Fade-in effect */
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1000;
+  white-space: nowrap; /* prevents wrapping */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 100%;
+}
+
+.footer-dir {
+    word-spacing: 5px; 
+    color: #FFF;
+    margin-bottom: 6px;
+}
+
+.footer-dir span {
+    color:white; 
+    opacity: 50%;    
+}
+
+.footer-dir a {
+    color: #FFF;
+    font-weight: normal;
+}
+
+.footer-dir a:hover {
+    text-decoration: underline;
+}
+
+@keyframes moreMessageAnimation {
+  0% { top: 0px; }
+  50% { top: -15px; }
+  100% { top: 0px; }
+}
+
+.moreMessage {
+  text-align: center;
+  font-size: 25px;
+  color: rgb(117,84,240);
+  text-shadow: -1px 2px 0 white;
+  padding: 20px 0;
+  position:relative;
+  animation-name: moreMessageAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.infoAlert {
+  padding: 10px;
+  background-color:rgb(33,150,243,.6);
+  color: white;
+  margin: 0 auto;
+  max-width: 20%;
+  border: outset;
+  border-radius: 20px;
+  border-color: #2196F3;
+}
+
+/* Discord Feed Container */
+#discord-feed {
+  max-width: 60%;
+  margin: 2rem auto;
+  padding: 10vh 1.5rem;
+  border-radius: 1rem;
+  background-color: rgba(117, 84, 240, 0.4);
+  color: #fff;
+  font-family: "Montserrat Light", sans-serif;
+  border: 3px outset rgb(117, 84, 240);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(117, 84, 240, 0.25);
+}
+
+/* Feed title */
+#discord-feed h2 {
+  font-size: 1.8rem;
+  color: rgb(117, 84, 240);
+  text-shadow: -1px 2px 0 white;
+  margin-bottom: 2rem;
+}
+
+.message {
+  background: #2f3136;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  height: 30vh;                 /* Fixed height */
+  display: flex;                
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;             /* Scroll if needed */
+  scrollbar-width: thin;        /* Firefox */
+  scrollbar-color: rgba(117,84,240,0.5) transparent; /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.message::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.message::-webkit-scrollbar-thumb {
+  background-color: rgba(117,84,240,0.5);
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.message::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(117,84,240,0.8);
+}
+
+/* Slight animation for carousel transitions */
+.message.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Timestamp + author line */
+.message p {
+  margin: 0 0 0.5rem 0;
+}
+
+.timestamp {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+/* Inline code formatting */
+code {
+  background: #202225;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+  font-family: "Consolas", monospace;
+}
+
+/* Navigation container (arrows + counter) */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Navigation buttons */
+.nav-btn {
+  background: rgb(117, 84, 240);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.nav-btn:hover {
+  background: rgb(95, 68, 200);
+  transform: scale(1.05);
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Slide counter */
+.nav span {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  #discord-feed {
+    max-width: 90%;
+    padding: 6vh 1rem;
+  }
+
+  #discord-feed h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
