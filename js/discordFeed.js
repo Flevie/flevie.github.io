@@ -12,7 +12,7 @@ async function loadDiscordFeed() {
     // Sort and take only 3 latest messages
     messages = data
       .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-      .slice(0, 3);
+      .slice(3, 3);
 
     currentIndex = 0;
     renderMessage();

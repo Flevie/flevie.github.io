@@ -15,7 +15,8 @@
   <body>
     <section class="welcomeBanner">
       <div class="banner-content hidden">
-        <img src="graphics/flevie.gif" alt="flevie gif">
+        <img src="graphics/diamond.gif" alt="rotating diamond gif">
+        <p>Flevie</p>
         <p>
           <i class="fa-brands fa-html5"></i>
           <i class="fa-brands fa-css"></i>
@@ -29,7 +30,11 @@
     <section class="content" id="mainContent">
       <div class="divider"></div>
       <div class="container">
-        <div> 
+        <div id="box2"> 
+          <h2>Area of Expertise</h2>
+          <p> I specialize in web development and design, graphic design, music and management. In terms of music, I play piano &#38; the drums.</p>
+        </div>
+        <div id="box1"> 
           <h2>About Me</h2> 
           <p>Hello! My name is Flevie, and I am a web developer, front-end developer, graphic designer and musician.</p>
           <br>
@@ -40,12 +45,7 @@
           <p>I started doing web development and design at the start of Autumn of 2025. It is a mandatory part of my Media &#38; Informatics Engineering programme and I have not stopped working since my first line of code.</p>
         </div>
 
-        <div> 
-          <h2>Area of Expertise</h2>
-          <p> I specialize in web development and design, graphic design, music and management. In terms of music, I play piano &#38; the drums.</p>
-        </div>
-
-        <div> 
+        <div id="box3"> 
           <h2>Gallery</h2> 
           <p>Coming Soon</p>
         </div>
@@ -57,20 +57,15 @@
     </section>
 
     <section class="content" id="secondaryContent">
-      <div class="secondaryDivider"></div>
-      <section id="discord-feed">
-        <h2>Latest from my Discord Server</h2>
-        <div id="feed"></div>
-      </section>
     </section>
     
     <section>
       <div class="footer" style="text-align: center" id="information"> 
-        <p class="footer-dir"><a href="index.html"><strong>Home</strong></a></p>
+        <p class="footer-dir"><a href="/"><strong>Home</strong></a></p>
         <p>
             v. 
-            <a href="https://github.com/Site-55/web"><span class="tooltip"> a-01: "Alpha" 
-                <span class="tooltiptext">Alpha (0) v0.0.1 • Build 02/11-25
+            <a href="https://github.com/Flevie/flevie.github.io"><span class="tooltip"> a-02: "Smoothness" 
+                <span class="tooltiptext">Alpha (0) v0.0.2 • Build 19/12-25
                 </span> 
             </span>
             </a> 
@@ -81,7 +76,7 @@
         <br> 
         <div class="footernav"> 
             <p> 
-                <a href="index.html">Home </a>
+                <a href="/">Home </a>
             </p> 
         </div> 
       </div>
@@ -91,6 +86,22 @@
     <script src="js/grid.js"></script>
     <script src="js/discordFeed.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script> 
+    const lenis = new Lenis({
+          duration: 1.1,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          smoothTouch: false
+            })
+
+            function raf(time) {
+              lenis.raf(time)
+              requestAnimationFrame(raf)
+            }
+          requestAnimationFrame(raf)
+
+    </script>
     
   </body>
 </html>
